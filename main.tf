@@ -16,3 +16,14 @@ resource "aws_instance" "sams-example" {
         Name = "sams-terraform-example"
     }
 }
+
+resource "aws_security_group" "sams-security-group" {
+    name = "sams-security-group"
+
+    ingress {
+        from_port = 8080
+        to_port = 8080
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+}
